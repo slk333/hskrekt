@@ -7,7 +7,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentMot:Mot!
     var correctText:String!
-    var scoreGlobalActuel:Int=0
+    var scoreTotalActuel:Int=0
     var stringToEnter=""
     
     @IBOutlet weak var characterLabel:UILabel!
@@ -36,7 +36,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
            
                 if currentMot.score<10{currentMot.score+=1}
             updateExpirationDateAndSave()
-                 scoreGlobalActuel+=1
+                 scoreTotalActuel+=1
             //    print(currentMot.score)
             
             }
@@ -68,7 +68,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                 if currentMot.score>1{currentMot.score-=2}
                 else{ if currentMot.score==1{currentMot.score=0}}}
            updateExpirationDateAndSave()
-            scoreGlobalActuel-=1
+            scoreTotalActuel-=1
           //  print(currentMot.score)
             
             
@@ -159,7 +159,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     
     func createNewQuestion(){
         toggleOff()
-        scoreBar.progress=Float(scoreGlobalActuel)/Float(1530)
+        scoreBar.progress=Float(scoreTotalActuel)/Float(1530)
         
         // choix d'un nouveau mot
         // trouver les mots expirés

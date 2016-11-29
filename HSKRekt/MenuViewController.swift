@@ -1,52 +1,41 @@
 import UIKit
 import CoreData
+
+// MENU VIEW CONTROLLER
+
 class MenuViewController: UIViewController {
-    var scoreGlobalActuel:Int=0
+    
+    var scoreTotalActuel:Int=0
      let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewWillAppear(_ animated: Bool) {
-        let fetchAllWords=NSFetchRequest<Mot>(entityName: "Mot")
-        let allWords=try! context.fetch(fetchAllWords)
-       // print("allWords.count")
-      //  print(allWords.count)
-        for mot in allWords{
-            scoreGlobalActuel+=Int(mot.score)
+        
+        // Calculer le score total à partir de la base de donnée
+        // les autres view ne font que mettre à jour à ce chiffre, sans calculer à chaque fois le score à partir de la base de donnée.
+        
+        let motsRequest=NSFetchRequest<Mot>(entityName: "Mot")
+        let mots=try! context.fetch(motsRequest)
+        for mot in mots{
+            scoreTotalActuel+=Int(mot.score)
         }
-   //     print(scoreGlobalActuel)
+   
 
     }
     
     override func viewDidLoad() {
+        // check au lancement de l'application si la base de donné est vide
+        
         let defaults = UserDefaults.standard
         let isLoaded = defaults.bool(forKey: "isLoaded")
         if !isLoaded{_=Loader()}
         super.viewDidLoad()
-        
-        
+          }
 
-        // Do any additional setup after loading the view.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="startTraining"{
-            (segue.destination as! EnterWordViewController).scoreGlobalActuel=scoreGlobalActuel
+                // passer scoreTotalActuel à enterWord Scene pour qu'elle affiche et update le score
+        if segue.identifier=="toTypePinyinScene"{
+            (segue.destination as! EnterWordViewController).scoreTotalActuel=scoreTotalActuel
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+  }
