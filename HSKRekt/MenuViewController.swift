@@ -15,6 +15,7 @@ class MenuViewController: UIViewController {
         
         let motsRequest=NSFetchRequest<Mot>(entityName: "Mot")
         let mots=try! context.fetch(motsRequest)
+        scoreTotalActuel=0
         for mot in mots{
             scoreTotalActuel+=Int(mot.score)
         }

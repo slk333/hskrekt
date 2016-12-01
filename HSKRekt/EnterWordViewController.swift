@@ -170,13 +170,15 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     
     func createNewQuestion(){
         toggleOff()
+         answerTF.isEnabled=true
         scoreBar.progress=Float(scoreTotalActuel)/Float(1530)
         
         // choix d'un nouveau mot
-        // trouver les mots expirés
-        let dateOfNow:Double=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
+        
+        // Vérifier si il y a des mot à réviser
+        let currentDateAsNumber:Double=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
         let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
-        expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(dateOfNow))
+        expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
         let sorting=NSSortDescriptor(key: "date", ascending: true)
         expiredWordsRequest.sortDescriptors=[sorting]
         
@@ -195,14 +197,18 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                 
             let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
             fetchNeverSeenWordRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-            if let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest){
-               // print("neverSeenWordsCount : \(neverSeenWords.count)")
-            currentMot=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
-            }
+                guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
+              
+                if neverSeenWords.count != 0{
+                    currentMot=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]
+                
+                }
+            
                 // il ne reste plus du tout de mots à réviser
 
             else {
-            answerTF.text="Come back later !😂"
+            answerTF.text="Come back later!"
+                    answerTF.isEnabled=false
             characterLabel.text=""
             infoButton.isHidden=true
                  return
@@ -211,10 +217,6 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         
         }
         
-        
-        
-        // choix d'un mot au hasard
-       
         
         // mise à jour de l'interface
       
