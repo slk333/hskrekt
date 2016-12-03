@@ -1,6 +1,11 @@
 import UIKit
 import CoreData
 
+// variables globales
+var hskLevel=1
+
+
+
 // MENU VIEW CONTROLLER
 
 class MenuViewController: UIViewController {

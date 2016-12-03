@@ -15,6 +15,7 @@
 		2F6706C51DBB3D610055EB0D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */; };
 		2F6CE1381DC5CDA8008D785E /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6CE1371DC5CDA8008D785E /* ScoreScene.swift */; };
 		2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */; };
+		2FC3FACF1DF30D6D0063B138 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */; };
 		2FF5D9131DB3664B005C277A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5D9121DB3664B005C277A /* AppDelegate.swift */; };
 		2FF5D9151DB3664B005C277A /* AutoEvalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */; };
 		2FF5D9181DB3664B005C277A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5D9161DB3664B005C277A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		2F6706C41DBB3D610055EB0D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		2F6CE1371DC5CDA8008D785E /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
 		2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FF5D90F1DB3664B005C277A /* HSKRekt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSKRekt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF5D9121DB3664B005C277A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF5D9141DB3664B005C277A /* AutoEvalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEvalViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				2F6706C21DBB39A10055EB0D /* CharacterTableViewController.swift */,
 				2F0677471DB39E56000FFDBD /* Loader.swift */,
 				2FF5D9161DB3664B005C277A /* Main.storyboard */,
+				2FC3FACE1DF30D6D0063B138 /* SettingsViewController.swift */,
 				2F6EFAA01DDB7C7B006F88A1 /* MenuViewController.swift */,
 				2F3F2CDF1DD0E34C00473AE1 /* EnterWordViewController.swift */,
 				2F6CE1371DC5CDA8008D785E /* ScoreScene.swift */,
@@ -177,6 +180,7 @@
 				2F6EFAA11DDB7C7B006F88A1 /* MenuViewController.swift in Sources */,
 				2F0677481DB39E56000FFDBD /* Loader.swift in Sources */,
 				2F06774B1DB39F62000FFDBD /* Mot+CoreDataClass.swift in Sources */,
+				2FC3FACF1DF30D6D0063B138 /* SettingsViewController.swift in Sources */,
 				2F06774C1DB39F62000FFDBD /* Mot+CoreDataProperties.swift in Sources */,
 				2FF5D91B1DB3664B005C277A /* HSKRekt.xcdatamodeld in Sources */,
 			);
