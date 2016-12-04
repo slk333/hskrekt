@@ -1,6 +1,7 @@
 import UIKit
 import CoreData
-// import AVFoundation
+import AVFoundation
+
 
 
 
@@ -13,12 +14,19 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     var scoreTotalActuel:Int=0
     var stringToEnter=""
     let defaultGreenColor=UIColor(colorLiteralRed: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
+  let speechSynthesizer = AVSpeechSynthesizer()
+  let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
+    var utterance=AVSpeechUtterance(string: "我")
+
+
     
     @IBOutlet weak var characterLabel:UILabel!
+    @IBOutlet weak var definitionTV:UITextView!
     @IBOutlet weak var answerTF: UITextField!
     @IBOutlet weak var correctOrFalseSymbolLabel:UILabel!
     @IBOutlet weak var scoreBar:UIProgressView!
     @IBOutlet weak var infoButton: UIButton!
+    
     
     
     
@@ -50,12 +58,18 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             // gestion de l'interface
             correctOrFalseSymbolLabel.textColor=defaultGreenColor
             correctOrFalseSymbolLabel.text="✓"
+            // afficher la définition
+            definitionTV.text=currentMot.definition
+            // schedule le prononcé du mot
+            
+           self.speechSynthesizer.speak(utterance)
+           
+            
             
             
             // schedule la new question dans 1 seconde
-            _=Timer.scheduledTimer(withTimeInterval: 1.1, repeats: false, block: {_ in self.createNewQuestion()})
-            sender.keyboardType = .default
-            sender.reloadInputViews()
+            _=Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: {_ in self.createNewQuestion()})
+
             
             
             
@@ -93,9 +107,10 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     
     
     func toggleOff(){
-        // masquer le symbole de victoire et remettre à zéro le textfield de réponse.
-    correctOrFalseSymbolLabel.text=""
+        
+        correctOrFalseSymbolLabel.text=""
         answerTF.text=""
+        definitionTV.text=""
     }
     
     func updateExpirationDateAndSave(){
@@ -142,6 +157,8 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         guard let existingFollowingCharacterIndex=correctText.index(correctText.startIndex, offsetBy: range.location+1,limitedBy:correctText.index(before: correctText.endIndex))
             
             else{
+                textField.keyboardType = .default
+                textField.reloadInputViews()
                 // on est dans la situation où l'utilisateur est en train d'écrire le dernier caractère du mot à étudier, donc le dernier ton
                 
                // il ne faut pas étudier le prochain caractère car il n'y en a pas.
@@ -222,7 +239,10 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
       
         characterLabel.text=currentMot.character
         correctText=currentMot.pinyin!
-      
+        utterance=AVSpeechUtterance(string: currentMot.character)
+       utterance.voice=self.voice
+        
+        
         
     }
     
