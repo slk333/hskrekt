@@ -1,7 +1,7 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-let listTitles=["HSK 1","Review Schedule","HSK 2","HSK 3","HSK 4","HSK 5"]
+let listTitles=["HSK 1","HSK 2","Review Schedule","HSK 3","HSK 4","HSK 5"]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterVC=segue.destination as! CharacterTableViewController

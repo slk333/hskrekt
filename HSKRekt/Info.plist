@@ -42,5 +42,9 @@
 	<false/>
 	<key>hasHSK2</key>
 	<false/>
+	<key>voiceEnabled</key>
+	<true/>
+	<key>hskLevel</key>
+	<integer>1</integer>
 </dict>
 </plist>

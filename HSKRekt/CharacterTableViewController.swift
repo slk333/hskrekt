@@ -37,8 +37,17 @@ class CharacterTableViewController: UITableViewController {
         super.viewDidLoad()
 
          let triParDate:NSFetchRequest<Mot>=Mot.fetchRequest()
-        triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000" )
-        triParDate.sortDescriptors=[NSSortDescriptor(key: "date", ascending: true)]
+        if hskLevel==1{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
+            let notNew=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")
+            triParDate.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,notNew])
+            
+        }
+        else{ triParDate.predicate=NSPredicate(format: "%K != %@", #keyPath(Mot.date),"1000000000")}
+        
+        
+        
+            triParDate.sortDescriptors=[NSSortDescriptor(key: "date", ascending: true)]
         motsSortedByDate=try! context.fetch(triParDate)
         
         

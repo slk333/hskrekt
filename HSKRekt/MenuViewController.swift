@@ -3,6 +3,7 @@ import CoreData
 
 // variables globales
 var hskLevel=1
+var voiceEnabled=true
 
 
 
@@ -34,6 +35,14 @@ class MenuViewController: UIViewController {
         
         let defaults = UserDefaults.standard
         let hasHSK2 = defaults.bool(forKey: "hasHSK2")
+        if defaults.integer(forKey: "hskLevel")==0{
+        defaults.set(true, forKey: "voiceEnabled")
+            defaults.set("1",forKey: "hskLevel")
+        }
+        
+        voiceEnabled =  defaults.bool(forKey: "voiceEnabled")
+        hskLevel = defaults.integer(forKey: "hskLevel")
+     
         if !hasHSK2{_=Loader()}
         super.viewDidLoad()
           }

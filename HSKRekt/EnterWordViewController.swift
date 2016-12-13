@@ -14,10 +14,11 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     var scoreTotalActuel:Int=0
     var stringToEnter=""
     let defaultGreenColor=UIColor(colorLiteralRed: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
+
   let speechSynthesizer = AVSpeechSynthesizer()
   let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
     var utterance=AVSpeechUtterance(string: "我")
-
+    
 
     
     @IBOutlet weak var characterLabel:UILabel!
@@ -61,9 +62,9 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             correctOrFalseSymbolLabel.text="✓"
             // afficher la définition
             definitionTV.text=currentMot.definition
-            // schedule le prononcé du mot
-            
-           self.speechSynthesizer.speak(utterance)
+            // VOICE
+            if voiceEnabled{
+                self.speechSynthesizer.speak(utterance)}
            
             
             
@@ -260,8 +261,9 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
       
         characterLabel.text=currentMot.character
         correctText=currentMot.pinyin!
+        if voiceEnabled{
         utterance=AVSpeechUtterance(string: currentMot.character)
-       utterance.voice=self.voice
+            utterance.voice=self.voice}
         
         
         
