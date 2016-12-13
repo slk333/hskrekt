@@ -6,6 +6,7 @@ var hskLevel=1
 
 
 
+
 // MENU VIEW CONTROLLER
 
 class MenuViewController: UIViewController {
@@ -32,8 +33,8 @@ class MenuViewController: UIViewController {
         // check au lancement de l'application si la base de donné est vide
         
         let defaults = UserDefaults.standard
-        let isLoaded = defaults.bool(forKey: "isLoaded")
-        if !isLoaded{_=Loader()}
+        let hasHSK2 = defaults.bool(forKey: "hasHSK2")
+        if !hasHSK2{_=Loader()}
         super.viewDidLoad()
           }
 

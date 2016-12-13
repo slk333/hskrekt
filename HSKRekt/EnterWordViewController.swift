@@ -48,6 +48,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             // augmentation du score si il n'y a pas eu de mauvaise réponse
             if correctOrFalseSymbolLabel.text! != "✗"{
            
+                
                 if currentMot.score<10{currentMot.score+=1}
             updateExpirationDateAndSave()
                  scoreTotalActuel+=1
@@ -194,8 +195,20 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         
         // Vérifier si il y a des mot à réviser
         let currentDateAsNumber:Double=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
-        let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
-        expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+               let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
+        
+        // PREDICATES
+        
+        if hskLevel==1{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
+            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
+            
+        }
+        else{ expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))}
+
+        
+        
         let sorting=NSSortDescriptor(key: "date", ascending: true)
         expiredWordsRequest.sortDescriptors=[sorting]
         
@@ -213,8 +226,16 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             // 1) il reste des mots jamais révisés
                 
             let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
-            fetchNeverSeenWordRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
+              
+                if hskLevel==1{
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
+                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    
+                }
+                else{ fetchNeverSeenWordRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")}
+
+                                guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
               
                 if neverSeenWords.count != 0{
                     currentMot=neverSeenWords[Int(arc4random_uniform(UInt32(neverSeenWords.count)))]

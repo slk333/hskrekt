@@ -40,5 +40,7 @@
 	<true/>
 	<key>isLoaded</key>
 	<false/>
+	<key>hasHSK2</key>
+	<false/>
 </dict>
 </plist>

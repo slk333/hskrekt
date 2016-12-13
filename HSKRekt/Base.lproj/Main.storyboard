@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C53a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C60b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vb8-qg-pOj">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -134,7 +134,7 @@
                                 <rect key="frame" x="20" y="72" width="374" height="2"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="It doesn't matter" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t2-nn-3zv">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="It doesn't matter AAAAAAAAIt doesn't matter AAAAAAAAIt doesn't matter AAAAAAAAIt doesn't matter AAAAAAAAIt doesn't matter AAAAA" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t2-nn-3zv">
                                 <rect key="frame" x="20" y="247" width="374" height="129"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="129" id="2yC-25-kWr"/>
@@ -234,7 +234,7 @@
                                 <rect key="frame" x="21" y="209" width="374" height="61"/>
                                 <color key="backgroundColor" red="0.96216100454330444" green="0.91076153516769409" blue="0.84355264902114868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
-                                <state key="normal" title="List">
+                                <state key="normal" title="Lists">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -255,7 +255,7 @@
                                     <segue destination="Oqn-hg-sbJ" kind="show" id="TPW-SY-jEB"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiZ-Ar-sjJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiZ-Ar-sjJ">
                                 <rect key="frame" x="15" y="347" width="383" height="61"/>
                                 <color key="backgroundColor" red="0.96216100449999997" green="0.91076153520000003" blue="0.84355264900000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -306,31 +306,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-Qs-DNe">
-                                <rect key="frame" x="20" y="118" width="374" height="29"/>
-                                <segments>
-                                    <segment title="1"/>
-                                    <segment title="2"/>
-                                    <segment title="3"/>
-                                    <segment title="4"/>
-                                    <segment title="5"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select HSK Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyU-bX-gXT">
-                                <rect key="frame" x="20" y="72" width="230" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HSK Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyU-bX-gXT">
+                                <rect key="frame" x="20" y="97" width="149" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="8F9-6U-HHQ"/>
+                                    <constraint firstAttribute="height" constant="38" id="CEp-Vl-svQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRW-CR-vco">
+                                <rect key="frame" x="20" y="160" width="80" height="38"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-9H-aNS">
+                                <rect key="frame" x="345" y="164" width="51" height="31"/>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <segmentedControl opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-Qs-DNe">
+                                <rect key="frame" x="197" y="102" width="197" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.97308427095413208" green="0.95369857549667358" blue="0.90761065483093262" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jyU-bX-gXT" firstAttribute="leading" secondItem="s1b-Ps-mca" secondAttribute="leadingMargin" id="2re-UL-C7z"/>
-                            <constraint firstItem="bcj-Qs-DNe" firstAttribute="trailing" secondItem="s1b-Ps-mca" secondAttribute="trailingMargin" id="5ki-fH-dUL"/>
-                            <constraint firstItem="bcj-Qs-DNe" firstAttribute="top" secondItem="jyU-bX-gXT" secondAttribute="bottom" constant="8" symbolic="YES" id="5uA-MD-fKL"/>
-                            <constraint firstItem="jyU-bX-gXT" firstAttribute="leading" secondItem="bcj-Qs-DNe" secondAttribute="leading" id="PnO-S9-9gs"/>
-                            <constraint firstItem="jyU-bX-gXT" firstAttribute="top" secondItem="4XK-VQ-hHc" secondAttribute="bottom" constant="8" symbolic="YES" id="oeb-6k-T0W"/>
+                            <constraint firstItem="gWa-9H-aNS" firstAttribute="top" secondItem="bcj-Qs-DNe" secondAttribute="bottom" constant="34" id="0mt-IK-Nnd"/>
+                            <constraint firstItem="bcj-Qs-DNe" firstAttribute="leading" secondItem="jyU-bX-gXT" secondAttribute="trailing" constant="28" id="1mI-aj-3hK"/>
+                            <constraint firstItem="bcj-Qs-DNe" firstAttribute="trailing" secondItem="s1b-Ps-mca" secondAttribute="trailingMargin" id="FP3-ZM-6eR"/>
+                            <constraint firstItem="jyU-bX-gXT" firstAttribute="leading" secondItem="s1b-Ps-mca" secondAttribute="leadingMargin" id="GHv-UA-W0e"/>
+                            <constraint firstItem="jyU-bX-gXT" firstAttribute="top" secondItem="4XK-VQ-hHc" secondAttribute="bottom" constant="33" id="cdo-O4-bIc"/>
+                            <constraint firstItem="bcj-Qs-DNe" firstAttribute="top" secondItem="4XK-VQ-hHc" secondAttribute="bottom" constant="38" id="ejX-iv-qhh"/>
+                            <constraint firstItem="FRW-CR-vco" firstAttribute="leading" secondItem="s1b-Ps-mca" secondAttribute="leadingMargin" id="htY-ke-ziV"/>
+                            <constraint firstItem="FRW-CR-vco" firstAttribute="top" secondItem="jyU-bX-gXT" secondAttribute="bottom" constant="25" id="k3d-Wl-KGK"/>
+                            <constraint firstItem="gWa-9H-aNS" firstAttribute="trailing" secondItem="s1b-Ps-mca" secondAttribute="trailingMargin" id="p37-Ry-F35"/>
                         </constraints>
                     </view>
                     <connections>
@@ -339,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9P-U0-EAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174.375" y="621.12676056338034"/>
+            <point key="canvasLocation" x="173.91304347826087" y="620.38043478260875"/>
         </scene>
         <!--Lists-->
         <scene sceneID="wpT-db-8fZ">
@@ -354,7 +371,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QR1-6r-5J0" id="oU3-Dv-TIK">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HSK 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIZ-sX-6sT">
@@ -397,7 +414,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="47O-F9-mko" id="umr-Dt-Err">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-CK-PyT">

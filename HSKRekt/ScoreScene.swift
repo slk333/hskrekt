@@ -39,8 +39,11 @@ let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 150
+        if hskLevel==2{
+        
+            return 303}
+        
+        else {return 153}
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

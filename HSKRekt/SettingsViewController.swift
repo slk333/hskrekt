@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        hskLevel=hskLevelSegmentedControl.selectedSegmentIndex
+        hskLevel=hskLevelSegmentedControl.selectedSegmentIndex+1
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController {
         // custom le segmentedControl
      let font=UIFont(name: "PingFang SC" , size: 19)?.bold()
         hskLevelSegmentedControl.setTitleTextAttributes([NSFontAttributeName:font!] , for: .normal)
-        hskLevelSegmentedControl.selectedSegmentIndex=hskLevel
+        hskLevelSegmentedControl.selectedSegmentIndex=hskLevel-1
         
         
         

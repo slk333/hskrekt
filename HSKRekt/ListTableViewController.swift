@@ -8,12 +8,12 @@ let listTitles=["HSK 1","Review Schedule","HSK 2","HSK 3","HSK 4","HSK 5"]
         let cell=sender as! UITableViewCell
         let label=cell.viewWithTag(1)! as! UILabel
         characterVC.listeEnCours=label.text!
-    }
+        if label.text! == "HSK 2"{characterVC.decalage=153}}
     
    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
  
 
