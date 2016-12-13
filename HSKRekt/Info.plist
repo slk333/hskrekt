@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -38,13 +38,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>isLoaded</key>
-	<false/>
 	<key>hasHSK2</key>
+	<false/>
+	<key>hskLevel</key>
+	<integer>1</integer>
+	<key>isLoaded</key>
 	<false/>
 	<key>voiceEnabled</key>
 	<true/>
-	<key>hskLevel</key>
-	<integer>1</integer>
 </dict>
 </plist>

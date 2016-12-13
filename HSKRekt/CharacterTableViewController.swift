@@ -23,9 +23,12 @@ class CharacterTableViewController: UITableViewController {
      let destination=segue.destination as! DetailViewController
         
         fetchRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.index), String(selectedRow+decalage))
-       let mot=try! context.fetch(fetchRequest).first!
+       var mot=try! context.fetch(fetchRequest).first!
+        if listeEnCours=="Review Schedule"{
+            mot=motsSortedByDate[selectedRow]
+        }
 
-        destination.mot=mot
+            destination.mot=mot
        
         
     }
