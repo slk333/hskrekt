@@ -190,48 +190,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE">
-                                <rect key="frame" x="15" y="76" width="290" height="61"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="Cnf-I7-X0Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
-                                <state key="normal" title="Start Training">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lCC-l2-OtE" kind="show" identifier="toTypePinyinScene" id="Em1-sA-1OH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
-                                <rect key="frame" x="15" y="145" width="290" height="61"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="K0s-Ah-pfY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
-                                <state key="normal" title="Dashboard">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="m1F-bM-E8Z" kind="show" identifier="infoAboutWord" id="dtj-xC-1kg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiZ-Ar-sjJ">
-                                <rect key="frame" x="15" y="214" width="290" height="61"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="sMf-aT-4Y5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="coV-Wd-pKV" kind="show" identifier="toSettings" id="GzU-TU-kqO"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Vb-0vk">
                                 <rect key="frame" x="130" y="8" width="60" height="60"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -240,19 +198,63 @@
                                     <constraint firstAttribute="height" constant="60" id="srk-rp-baR"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-FU-FUo">
+                                <rect key="frame" x="16" y="95" width="288" height="195"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-eF-VhE">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="61"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="Cnf-I7-X0Q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Start Training">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="lCC-l2-OtE" kind="show" identifier="toTypePinyinScene" id="Em1-sA-1OH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wY-LL-4DJ">
+                                        <rect key="frame" x="0.0" y="67" width="288" height="61"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="K0s-Ah-pfY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Dashboard">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="m1F-bM-E8Z" kind="show" identifier="infoAboutWord" id="dtj-xC-1kg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiZ-Ar-sjJ">
+                                        <rect key="frame" x="0.0" y="134" width="288" height="61"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="sMf-aT-4Y5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="coV-Wd-pKV" kind="show" identifier="toSettings" id="GzU-TU-kqO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ZiZ-Ar-sjJ" secondAttribute="trailing" constant="15" id="LTz-af-CE5"/>
-                            <constraint firstItem="5wY-LL-4DJ" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leading" constant="15" id="Qyh-eR-8B7"/>
-                            <constraint firstItem="ZiZ-Ar-sjJ" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leading" constant="15" id="SDF-a1-acz"/>
+                            <constraint firstItem="o4D-FU-FUo" firstAttribute="top" secondItem="oIt-Vb-0vk" secondAttribute="bottom" constant="27" id="1Xc-HR-s4T"/>
+                            <constraint firstItem="o4D-FU-FUo" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leadingMargin" id="Jp4-hk-Wmg"/>
                             <constraint firstItem="oIt-Vb-0vk" firstAttribute="top" secondItem="sM9-j3-6n6" secondAttribute="bottom" constant="8" id="aaT-vK-fxW"/>
-                            <constraint firstItem="Igu-eF-VhE" firstAttribute="top" secondItem="oIt-Vb-0vk" secondAttribute="bottom" constant="8" id="cQy-Tx-fHS"/>
-                            <constraint firstItem="Igu-eF-VhE" firstAttribute="leading" secondItem="YuO-tk-ZQF" secondAttribute="leading" constant="15" id="dQv-oN-rvv"/>
-                            <constraint firstItem="ZiZ-Ar-sjJ" firstAttribute="top" secondItem="5wY-LL-4DJ" secondAttribute="bottom" constant="8" id="ixH-kv-bvP"/>
-                            <constraint firstItem="5wY-LL-4DJ" firstAttribute="top" secondItem="Igu-eF-VhE" secondAttribute="bottom" constant="8" id="n9o-By-ptV"/>
-                            <constraint firstAttribute="trailing" secondItem="Igu-eF-VhE" secondAttribute="trailing" constant="15" id="nSX-7G-ktq"/>
-                            <constraint firstAttribute="trailing" secondItem="5wY-LL-4DJ" secondAttribute="trailing" constant="15" id="rG4-G1-SsT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o4D-FU-FUo" secondAttribute="trailing" id="e9H-El-sCH"/>
                             <constraint firstItem="oIt-Vb-0vk" firstAttribute="centerX" secondItem="YuO-tk-ZQF" secondAttribute="centerX" id="y43-Of-f9J"/>
                         </constraints>
                     </view>
@@ -454,128 +456,111 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没关系" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8m-jF-Ori">
-                                <rect key="frame" x="16" y="40" width="230" height="39"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fde-Vf-e8d">
+                                <rect key="frame" x="24" y="20" width="272" height="464"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="00J-x1-wpL">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="62.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="N3r-gm-HVm">
+                                                <rect key="frame" x="0.0" y="0.0" width="218" height="62.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meU-fg-oER">
+                                                        <rect key="frame" x="0.0" y="0.0" width="218" height="24"/>
+                                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没关系" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8m-jF-Ori">
+                                                        <rect key="frame" x="0.0" y="26" width="218" height="36.5"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-uu-rO8">
+                                                <rect key="frame" x="226" y="0.0" width="46" height="62.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-3t-1D9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="46" id="3qe-ke-ICp"/>
+                                                            <constraint firstAttribute="height" constant="24" id="poh-Dd-7mj"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-BT-LN1">
+                                                        <rect key="frame" x="0.0" y="26" width="46" height="36.5"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinyin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-lP-3Jw">
+                                        <rect key="frame" x="0.0" y="70.5" width="272" height="24"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mei2 guan1 xi5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d8-K5D">
+                                        <rect key="frame" x="0.0" y="102.5" width="272" height="31"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-8i-7Pr">
+                                        <rect key="frame" x="0.0" y="141.5" width="272" height="24"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="l" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-MM-p5u">
+                                        <rect key="frame" x="0.0" y="173.5" width="272" height="136"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="XQ4-cZ-lWp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exemple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD3-C6-R3R">
+                                        <rect key="frame" x="0.0" y="317.5" width="272" height="24"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="l" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXN-wv-yvE">
+                                        <rect key="frame" x="0.0" y="349.5" width="272" height="114.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="114.5" id="GUq-DG-9B4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="H2z-Xs-gO5"/>
+                                    <constraint firstItem="JIJ-MM-p5u" firstAttribute="top" secondItem="iY9-8i-7Pr" secondAttribute="bottom" constant="2" id="ErP-Kl-xEI"/>
+                                    <constraint firstItem="kpg-d8-K5D" firstAttribute="top" secondItem="SnH-lP-3Jw" secondAttribute="bottom" constant="2" id="bje-xH-s3H"/>
+                                    <constraint firstItem="fXN-wv-yvE" firstAttribute="top" secondItem="OD3-C6-R3R" secondAttribute="bottom" constant="2" id="yCB-0T-JZA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-BT-LN1">
-                                <rect key="frame" x="254" y="40" width="50" height="39"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="7jl-0l-wQD"/>
-                                    <constraint firstAttribute="height" constant="39" id="Yn0-NY-vTx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meU-fg-oER">
-                                <rect key="frame" x="16" y="8" width="79" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="79" id="JYw-uv-aLz"/>
-                                    <constraint firstAttribute="height" constant="24" id="tH8-Hp-GBM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinyin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-lP-3Jw">
-                                <rect key="frame" x="16" y="87" width="48" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="Wp2-2o-5mT"/>
-                                    <constraint firstAttribute="height" constant="24" id="yJi-Nl-41a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mei2 guan1 xi5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d8-K5D">
-                                <rect key="frame" x="16" y="119" width="288" height="44"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="SkY-ex-Ik7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-8i-7Pr">
-                                <rect key="frame" x="16" y="171" width="76" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="eiI-Ff-fqG"/>
-                                    <constraint firstAttribute="height" constant="24" id="ssj-lG-sV7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut lar s" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-MM-p5u">
-                                <rect key="frame" x="16" y="203" width="288" height="101"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut l" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXN-wv-yvE">
-                                <rect key="frame" x="16" y="344" width="288" height="123"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="123" id="r4q-g4-4aK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exemple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD3-C6-R3R">
-                                <rect key="frame" x="16" y="312" width="76" height="24"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-3t-1D9">
-                                <rect key="frame" x="254" y="8" width="50" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="HgE-E3-ZWE"/>
-                                    <constraint firstAttribute="height" constant="24" id="miF-Wi-DxL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SnH-lP-3Jw" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="1vk-8i-aUz"/>
-                            <constraint firstItem="6Uq-BT-LN1" firstAttribute="leading" secondItem="K8m-jF-Ori" secondAttribute="trailing" constant="8" id="2Gd-Rl-qYZ"/>
-                            <constraint firstItem="JIJ-MM-p5u" firstAttribute="trailing" secondItem="fRw-QN-dmE" secondAttribute="trailingMargin" id="2iQ-ie-hW8"/>
-                            <constraint firstItem="iY9-8i-7Pr" firstAttribute="top" secondItem="kpg-d8-K5D" secondAttribute="bottom" constant="8" id="7Cm-h4-MEB"/>
-                            <constraint firstItem="kpg-d8-K5D" firstAttribute="top" secondItem="SnH-lP-3Jw" secondAttribute="bottom" constant="8" id="7a5-Fy-nWX"/>
-                            <constraint firstItem="iY9-8i-7Pr" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="7xi-Bf-8C1"/>
-                            <constraint firstItem="kpg-d8-K5D" firstAttribute="trailing" secondItem="fRw-QN-dmE" secondAttribute="trailingMargin" id="Br2-xw-z8q"/>
-                            <constraint firstItem="meU-fg-oER" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="Cxf-f8-cIU"/>
-                            <constraint firstItem="kpg-d8-K5D" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="GXd-u9-Aqm"/>
-                            <constraint firstItem="fXN-wv-yvE" firstAttribute="top" secondItem="OD3-C6-R3R" secondAttribute="bottom" constant="8" id="HWP-22-f8I"/>
-                            <constraint firstItem="Sc8-3t-1D9" firstAttribute="trailing" secondItem="fRw-QN-dmE" secondAttribute="trailingMargin" id="KjZ-J4-nPt"/>
-                            <constraint firstItem="SnH-lP-3Jw" firstAttribute="top" secondItem="K8m-jF-Ori" secondAttribute="bottom" constant="8" id="OGT-dL-dX3"/>
-                            <constraint firstItem="6Uq-BT-LN1" firstAttribute="trailing" secondItem="fRw-QN-dmE" secondAttribute="trailingMargin" id="OOc-6w-Srv"/>
-                            <constraint firstItem="Sc8-3t-1D9" firstAttribute="centerY" secondItem="meU-fg-oER" secondAttribute="centerY" id="QeM-Xk-gEp"/>
-                            <constraint firstItem="bjj-VK-9wi" firstAttribute="top" secondItem="fXN-wv-yvE" secondAttribute="bottom" constant="37" id="RfF-QO-XRn"/>
-                            <constraint firstItem="K8m-jF-Ori" firstAttribute="top" secondItem="meU-fg-oER" secondAttribute="bottom" constant="8" id="Trc-Zg-Fch"/>
-                            <constraint firstItem="OD3-C6-R3R" firstAttribute="top" secondItem="JIJ-MM-p5u" secondAttribute="bottom" constant="8" id="WDM-39-L1Y"/>
-                            <constraint firstItem="fXN-wv-yvE" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="Xq4-SE-Bzt"/>
-                            <constraint firstItem="fXN-wv-yvE" firstAttribute="trailing" secondItem="fRw-QN-dmE" secondAttribute="trailingMargin" id="boT-Mr-810"/>
-                            <constraint firstItem="JIJ-MM-p5u" firstAttribute="top" secondItem="iY9-8i-7Pr" secondAttribute="bottom" constant="8" id="mPR-Uo-P06"/>
-                            <constraint firstItem="K8m-jF-Ori" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="n1w-29-afu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OD3-C6-R3R" secondAttribute="trailing" constant="212" id="p6w-Xv-Eyd"/>
-                            <constraint firstItem="OD3-C6-R3R" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="ui7-HM-Lpo"/>
-                            <constraint firstItem="meU-fg-oER" firstAttribute="top" secondItem="YyZ-Ze-0PP" secondAttribute="bottom" constant="8" id="v9g-18-YIC"/>
-                            <constraint firstItem="6Uq-BT-LN1" firstAttribute="centerY" secondItem="K8m-jF-Ori" secondAttribute="centerY" id="wDp-4p-AYc"/>
-                            <constraint firstItem="OD3-C6-R3R" firstAttribute="top" secondItem="JIJ-MM-p5u" secondAttribute="bottom" constant="8" id="yGw-Xs-okA"/>
-                            <constraint firstItem="JIJ-MM-p5u" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" id="yxO-kN-5C9"/>
+                            <constraint firstItem="bjj-VK-9wi" firstAttribute="top" secondItem="fde-Vf-e8d" secondAttribute="bottom" constant="20" id="48K-R9-TUD"/>
+                            <constraint firstItem="fde-Vf-e8d" firstAttribute="leading" secondItem="fRw-QN-dmE" secondAttribute="leadingMargin" constant="8" id="CXp-wT-DMV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fde-Vf-e8d" secondAttribute="trailing" constant="8" id="H1p-dI-asp"/>
+                            <constraint firstItem="fde-Vf-e8d" firstAttribute="top" secondItem="YyZ-Ze-0PP" secondAttribute="bottom" constant="20" id="mwL-6o-OVb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1J2-yX-8BE"/>
@@ -589,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miA-1W-mbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="609"/>
+            <point key="canvasLocation" x="877.5" y="608.45070422535207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZYC-eZ-Vgw">
