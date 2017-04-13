@@ -40,6 +40,8 @@
 	<true/>
 	<key>hasHSK2</key>
 	<false/>
+	<key>hasHSK5</key>
+	<false/>
 	<key>hskLevel</key>
 	<integer>1</integer>
 	<key>isLoaded</key>

@@ -27,7 +27,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var correctOrFalseSymbolLabel:UILabel!
     @IBOutlet weak var scoreBar:UIProgressView!
     @IBOutlet weak var infoButton: UIButton!
-    
+     @IBOutlet weak var skipButton: UIButton!
     
     
     
@@ -36,6 +36,39 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         // passer le mot actuel à la dictionaryScene
         (segue.destination as! DetailViewController).mot=currentMot
 }
+    
+    @IBAction func skip(_ sender: UIButton){
+        if correctOrFalseSymbolLabel.text! != "✗"{
+            
+            
+            if currentMot.score<10{currentMot.score+=1}
+            updateExpirationDateAndSave()
+            scoreTotalActuel+=1
+            //    print(currentMot.score)
+            
+        }
+        
+        // gestion de l'interface
+        correctOrFalseSymbolLabel.textColor=defaultGreenColor
+        correctOrFalseSymbolLabel.text="✓"
+        // afficher la définition
+        skipButton.isHidden=true
+        definitionTV.text=currentMot.definition
+        // VOICE
+        if voiceEnabled{
+            self.speechSynthesizer.speak(utterance)}
+        
+        
+        
+        
+        // schedule la new question dans 1 seconde
+        
+        _=Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: {_ in self.createNewQuestion()})
+        
+        
+    }
+    
+    
     
     
     @IBAction func textChanged(_ sender: UITextField) {
@@ -61,6 +94,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             correctOrFalseSymbolLabel.textColor=defaultGreenColor
             correctOrFalseSymbolLabel.text="✓"
             // afficher la définition
+            skipButton.isHidden=true
             definitionTV.text=currentMot.definition
             // VOICE
             if voiceEnabled{
@@ -188,9 +222,10 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     }
     
     func createNewQuestion(){
+        skipButton.isHidden=false
         toggleOff()
          answerTF.isEnabled=true
-        scoreBar.progress=Float(scoreTotalActuel)/Float(1530)
+        scoreBar.progress=Float(scoreTotalActuel)/Float(24000)
         
         // choix d'un nouveau mot
         
@@ -206,8 +241,31 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
             
         }
-        else{ expiredWordsRequest.predicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))}
-
+        if hskLevel==2{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(303))
+            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
+            
+        }
+        if hskLevel==3{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(603))
+            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
+            
+        }
+        if hskLevel==4{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(1203))
+            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
+            
+        }
+        if hskLevel==5{
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(2403))
+            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
+            
+        }
+        
         
         
         let sorting=NSSortDescriptor(key: "date", ascending: true)
@@ -234,7 +292,32 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                     fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
                     
                 }
-                else{ fetchNeverSeenWordRequest.predicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")}
+                if hskLevel==2{
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(303))
+                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    
+                }
+                if hskLevel==3{
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(603))
+                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    
+                }
+                if hskLevel==4{
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(1203))
+                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    
+                }
+                if hskLevel==5{
+                    print("hskLevel is 5")
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(2403))
+                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
+                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
+                    
+                }
+               
 
                                 guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
               
@@ -246,6 +329,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                 // il ne reste plus du tout de mots à réviser
 
             else {
+                    skipButton.isHidden=true
             answerTF.text="Come back later!"
                     answerTF.isEnabled=false
             characterLabel.text=""
@@ -270,6 +354,8 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        let textFieldAppearance = UITextField.appearance()
+        textFieldAppearance.keyboardAppearance = .dark
         super.viewDidLoad()
         createNewQuestion()
         answerTF.becomeFirstResponder()

@@ -16,6 +16,7 @@ class MenuViewController: UIViewController {
      let context=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewWillAppear(_ animated: Bool) {
+        print(hskLevel)
         
         // Calculer le score total à partir de la base de donnée
         // les autres view ne font que mettre à jour à ce chiffre, sans calculer à chaque fois le score à partir de la base de donnée.
@@ -34,7 +35,7 @@ class MenuViewController: UIViewController {
         // check au lancement de l'application si la base de donné est vide
         
         let defaults = UserDefaults.standard
-        let hasHSK2 = defaults.bool(forKey: "hasHSK2")
+        let hasHSK5 = defaults.bool(forKey: "hasHSK5")
         if defaults.integer(forKey: "hskLevel")==0{
         defaults.set(true, forKey: "voiceEnabled")
             defaults.set("1",forKey: "hskLevel")
@@ -43,7 +44,7 @@ class MenuViewController: UIViewController {
         voiceEnabled =  defaults.bool(forKey: "voiceEnabled")
         hskLevel = defaults.integer(forKey: "hskLevel")
      
-        if !hasHSK2{_=Loader()}
+        if !hasHSK5{_=Loader()}
         super.viewDidLoad()
           }
 
