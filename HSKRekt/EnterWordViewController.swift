@@ -63,7 +63,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         
         // schedule la new question dans 1 seconde
         
-        _=Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: {_ in self.createNewQuestion()})
+        _=Timer.scheduledTimer(withTimeInterval: 1.7, repeats: false, block: {_ in self.createNewQuestion()})
         
         
     }
