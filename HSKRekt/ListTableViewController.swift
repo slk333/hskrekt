@@ -1,19 +1,23 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-let listTitles=["HSK 1","HSK 2","Review Schedule","HSK 3","HSK 4","HSK 5"]
+let listTitles=["Review Schedule","HSK 1","HSK 2","HSK 3","HSK 4","HSK 5"]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let characterVC=segue.destination as! CharacterTableViewController
         let cell=sender as! UITableViewCell
         let label=cell.viewWithTag(1)! as! UILabel
         characterVC.listeEnCours=label.text!
-        if label.text! == "HSK 2"{characterVC.decalage=153}}
+        if label.text! == "HSK 2"{characterVC.decalage=153}
+         if label.text! == "HSK 3"{characterVC.decalage=153+150}
+         if label.text! == "HSK 4"{characterVC.decalage=153+150+300}
+         if label.text! == "HSK 5"{characterVC.decalage=153+150+300+600}
+    }
     
    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 6
     }
  
 

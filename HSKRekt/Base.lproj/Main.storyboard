@@ -211,7 +211,7 @@
                                     <constraint firstAttribute="height" constant="61" id="K0s-Ah-pfY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="35"/>
-                                <state key="normal" title="Lists &amp; Score">
+                                <state key="normal" title="Dashboard">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

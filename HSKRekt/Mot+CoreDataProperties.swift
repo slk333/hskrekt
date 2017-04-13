@@ -1,11 +1,3 @@
-//
-//  Mot+CoreDataProperties.swift
-//  HSKRekt
-//
-//  Created by Antoine Weber on 16/10/2016.
-//  Copyright © 2016 antoine weber. All rights reserved.
-//
-
 import Foundation
 import CoreData
 
