@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -454,11 +455,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fde-Vf-e8d">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fde-Vf-e8d">
                                 <rect key="frame" x="16" y="20" width="288" height="464"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="00J-x1-wpL">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="68.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="00J-x1-wpL">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="66"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="N3r-gm-HVm">
                                                 <rect key="frame" x="0.0" y="0.0" width="234" height="66"/>
@@ -488,7 +489,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="46" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="46" id="3qe-ke-ICp"/>
-                                                            <constraint firstAttribute="height" constant="24" id="poh-Dd-7mj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -508,53 +508,69 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinyin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnH-lP-3Jw">
-                                        <rect key="frame" x="0.0" y="76.5" width="288" height="25"/>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mei2 guan1 xi5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d8-K5D">
-                                        <rect key="frame" x="0.0" y="109.5" width="288" height="40"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="IXZ-Id-OlE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-8i-7Pr">
-                                        <rect key="frame" x="0.0" y="157.5" width="288" height="25"/>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="l" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-MM-p5u">
-                                        <rect key="frame" x="0.0" y="190.5" width="288" height="155.5"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="XQ4-cZ-lWp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exemple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD3-C6-R3R">
-                                        <rect key="frame" x="0.0" y="354" width="288" height="22"/>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="l" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXN-wv-yvE">
-                                        <rect key="frame" x="0.0" y="384" width="288" height="80"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="GUq-DG-9B4"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-bc-7ha">
+                                        <rect key="frame" x="0.0" y="74" width="288" height="66"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinyin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5O-Ot-H9l">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="JLl-6V-kmD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mei2 guan1 xi5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpg-d8-K5D">
+                                                <rect key="frame" x="0.0" y="26" width="288" height="40"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Ozm-c8-a6u"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-hR-3NQ">
+                                        <rect key="frame" x="0.0" y="148" width="288" height="215.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-8i-7Pr">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="l" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-MM-p5u">
+                                                <rect key="frame" x="0.0" y="26" width="288" height="189.5"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ugv-f0-9xf">
+                                        <rect key="frame" x="0.0" y="371.5" width="288" height="92.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exemple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD3-C6-R3R">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="l" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXN-wv-yvE">
+                                                <rect key="frame" x="0.0" y="26" width="288" height="66.5"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="9Pf-hR-3NQ" firstAttribute="height" relation="greaterThanOrEqual" secondItem="fde-Vf-e8d" secondAttribute="height" multiplier="0.45" id="Qmr-K7-960"/>
+                                    <constraint firstItem="ugv-f0-9xf" firstAttribute="height" secondItem="fde-Vf-e8d" secondAttribute="height" multiplier="0.2" id="ZDT-fV-WqW"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
