@@ -225,8 +225,8 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         skipButton.isHidden=false
         toggleOff()
          answerTF.isEnabled=true
-        scoreBar.progress=Float(scoreTotalActuel)/Float(24000)
-        
+        scoreBar.progress=Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10)
+        print(Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10))
         // choix d'un nouveau mot
         
         // Vérifier si il y a des mot à réviser
@@ -234,37 +234,12 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
         
         // PREDICATES
+      
+            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(wordsNumberForCurrentLevel))
+            let reviewPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
+            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredicate])
+            
         
-        if hskLevel==1{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
-            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
-            
-        }
-        if hskLevel==2{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(303))
-            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
-            
-        }
-        if hskLevel==3{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(603))
-            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
-            
-        }
-        if hskLevel==4{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(1203))
-            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
-            
-        }
-        if hskLevel==5{
-            let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(2403))
-            let reviewPredication=NSPredicate(format: "%K < %@", #keyPath(Mot.date), String(currentDateAsNumber))
-            expiredWordsRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,reviewPredication])
-            
-        }
         
         
         
@@ -281,42 +256,17 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             else{
                 
             // Il n'y a plus de mot à réviser
-         //   print("Il n'y a plus de mot à réviser")
+     
             // 1) il reste des mots jamais révisés
                 
             let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
               
-                if hskLevel==1{
-                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(153))
+                
+                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(wordsNumberForCurrentLevel))
                     let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
                     fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
-                    
-                }
-                if hskLevel==2{
-                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(303))
-                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
-                    
-                }
-                if hskLevel==3{
-                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(603))
-                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
-                    
-                }
-                if hskLevel==4{
-                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(1203))
-                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
-                    
-                }
-                if hskLevel==5{
-                    print("hskLevel is 5")
-                    let restrictionPredicate=NSPredicate(format: "%K < %@", #keyPath(Mot.index), String(2403))
-                    let newPredicate=NSPredicate(format: "%K == %@", #keyPath(Mot.date), "1000000000")
-                    fetchNeverSeenWordRequest.predicate=NSCompoundPredicate(andPredicateWithSubpredicates: [restrictionPredicate,newPredicate])
-                    
-                }
+                
+   
                
 
                                 guard let neverSeenWords=try? context.fetch(fetchNeverSeenWordRequest)else{return}
