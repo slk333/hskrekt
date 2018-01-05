@@ -9,7 +9,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scoreLabel:UILabel!
     
     
-    
+    var haveBackItem = true
     
     var mot:Mot!
   
@@ -29,7 +29,9 @@ class DetailViewController: UIViewController {
  
         definitionTextView.text=mot.definition
   
-        
+        if !haveBackItem {
+            navigationItem.hidesBackButton = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

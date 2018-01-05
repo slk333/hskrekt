@@ -86,7 +86,6 @@ class Loader{
         
         for i in 0..<2403{
             _=Mot(index: i, character: a1[i], pinyin: a2[i], definition: a3[i], score: Int(a4[i])!, date: Double(a5[i])!,exemple:a6[i],insertInto: context)
-        
         }
         
         

@@ -13,7 +13,8 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     var correctText:String!
     var scoreTotalActuel:Int=0
     var stringToEnter=""
-    let defaultGreenColor=UIColor(colorLiteralRed: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
+    let defaultGreenColor=UIColor(red: 65/255, green: 199/255, blue: 34/255, alpha: 0.75)
+    var incrementUp = Int32(3)
 
   let speechSynthesizer = AVSpeechSynthesizer()
   let voice=AVSpeechSynthesisVoice.init(language: "zh-CN")
@@ -28,31 +29,45 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var scoreBar:UIProgressView!
     @IBOutlet weak var infoButton: UIButton!
      @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var wrongButton: UIButton!
+    
+    @IBAction func backFromDefinitionScene(segue:UIStoryboardSegue){
+        
+        createNewQuestion()
+    }
+
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // on va dans la scene de definition
+        guard let _ = sender as? UIButton else{return}
+        
+        // si c'est via le bouton faux, on réduit le score
+        
+        decreaseScoreAndSave()
         
         // passer le mot actuel à la dictionaryScene
         (segue.destination as! DetailViewController).mot=currentMot
+        (segue.destination as! DetailViewController).haveBackItem = false
 }
     
     @IBAction func skip(_ sender: UIButton){
         if correctOrFalseSymbolLabel.text! != "✗"{
             
             
-            if currentMot.score<10{currentMot.score+=1}
-            updateExpirationDateAndSave()
-            scoreTotalActuel+=1
-            //    print(currentMot.score)
+          increaseScoreAndSave()
             
         }
         
         // gestion de l'interface
         correctOrFalseSymbolLabel.textColor=defaultGreenColor
         correctOrFalseSymbolLabel.text="✓"
+        characterLabel.text=currentMot.character
+        answerTF.text=currentMot.pinyin
         // afficher la définition
-        skipButton.isHidden=true
+        skipButton.isEnabled=true
+        wrongButton.isEnabled=false
         definitionTV.text=currentMot.definition
         // VOICE
         if voiceEnabled{
@@ -63,11 +78,32 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         
         // schedule la new question dans 1 seconde
         
-        _=Timer.scheduledTimer(withTimeInterval: 1.7, repeats: false, block: {_ in self.createNewQuestion()})
+        _=Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {_ in self.createNewQuestion()})
         
         
     }
     
+    func increaseScoreAndSave(){
+        
+        if currentMot.score < 6 {incrementUp = 3}
+        if currentMot.score >= 6 {incrementUp = 2}
+        if currentMot.score >= 8 {incrementUp = 1}
+        if currentMot.score == 10 {incrementUp = 0}
+        if currentMot.score == 11 {incrementUp = -1}
+        currentMot.score += incrementUp
+        updateExpirationDateAndSave()
+        scoreTotalActuel += Int(incrementUp)
+    }
+    
+    func decreaseScoreAndSave(){
+        if currentMot.score>3{currentMot.score=3}
+        else {
+            if currentMot.score>1{currentMot.score-=2}
+            else{ if currentMot.score==1{currentMot.score=0}}}
+        updateExpirationDateAndSave()
+        scoreTotalActuel-=1
+        
+    }
     
     
     
@@ -82,17 +118,15 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             // augmentation du score si il n'y a pas eu de mauvaise réponse
             if correctOrFalseSymbolLabel.text! != "✗"{
            
-                
-                if currentMot.score<10{currentMot.score+=1}
-            updateExpirationDateAndSave()
-                 scoreTotalActuel+=1
-            //    print(currentMot.score)
+                increaseScoreAndSave()
             
             }
 
             // gestion de l'interface
             correctOrFalseSymbolLabel.textColor=defaultGreenColor
             correctOrFalseSymbolLabel.text="✓"
+            characterLabel.text=currentMot.character
+            answerTF.text=currentMot.pinyin
             // afficher la définition
             skipButton.isHidden=true
             definitionTV.text=currentMot.definition
@@ -104,35 +138,31 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
             
             
             // schedule la new question dans 1 seconde
-            _=Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: {_ in self.createNewQuestion()})
+            _=Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {_ in self.createNewQuestion()})
 
             
             
             
         }
             // c'est faux (ou incomplet)
-        else if sender.text?.characters.count==currentMot.pinyin.characters.count {
+        else if sender.text?.count==currentMot.pinyin.count {
             // si c'est la mauvaise réponse, baisser le score une fois, et ignorer les prochaines mauvaises réponses, jusqu'à ce que l'utilisateur ait la bonne réponse
             guard correctOrFalseSymbolLabel.text != "✗" else {return}
             
             // première mauvaise réponse
             // gestion de l'interface
             correctOrFalseSymbolLabel.text="✗"
-            correctOrFalseSymbolLabel.textColor=UIColor(colorLiteralRed: 1, green: 0, blue: 0, alpha: 0.75)
+            correctOrFalseSymbolLabel.textColor=UIColor(red: 1, green: 0, blue: 0, alpha: 0.75)
+            characterLabel.text=currentMot.character
+            answerTF.text=currentMot.pinyin
             // mise à jour du score
-            if currentMot.score>3{currentMot.score=3}
-            else {
-                if currentMot.score>1{currentMot.score-=2}
-                else{ if currentMot.score==1{currentMot.score=0}}}
-           updateExpirationDateAndSave()
-            scoreTotalActuel-=1
-          //  print(currentMot.score)
             
+            decreaseScoreAndSave()
             
             return}
             
             // insertion automatique d'un espace si c'est le prochain caractère à entrer
-        else if correctText[correctText.index(correctText.startIndex, offsetBy: sender.text!.characters.count)] == " "  && !stringToEnter.isEmpty{
+        else if correctText[correctText.index(correctText.startIndex, offsetBy: sender.text!.count)] == " "  && !stringToEnter.isEmpty{
             
         sender.text?.append(" ")
             
@@ -165,7 +195,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
        
         
         // on ne peut pas écrire plus de caractères qu'il y en a dans la bonne réponse.
-        if textField.text?.characters.count==correctText.characters.count && !string.isEmpty{
+        if textField.text?.count==correctText.count && !string.isEmpty{
         return false
         }
         
@@ -222,13 +252,15 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
     }
     
     func createNewQuestion(){
-        skipButton.isHidden=false
+        // mise à jour interface
+        skipButton.isEnabled=true
+        wrongButton.isEnabled=true
         toggleOff()
          answerTF.isEnabled=true
         scoreBar.progress=Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10)
         print(Float(scoreTotalActuel)/Float(wordsNumberForCurrentLevel*10))
-        // choix d'un nouveau mot
         
+        // choix d'un nouveau mot
         // Vérifier si il y a des mot à réviser
         let currentDateAsNumber:Double=Date(timeIntervalSinceNow: 0).timeIntervalSinceReferenceDate
                let expiredWordsRequest=NSFetchRequest<Mot>(entityName: "Mot")
@@ -257,7 +289,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
                 
             // Il n'y a plus de mot à réviser
      
-            // 1) il reste des mots jamais révisés
+            // 1) il reste des mots jamais apparus
                 
             let fetchNeverSeenWordRequest=NSFetchRequest<Mot>(entityName: "Mot")
               
@@ -293,11 +325,15 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         
         // mise à jour de l'interface
       
-        characterLabel.text=currentMot.character
+        characterLabel.text=""
+        
+        definitionTV.text=currentMot.definition
         correctText=currentMot.pinyin!
         if voiceEnabled{
         utterance=AVSpeechUtterance(string: currentMot.character)
-            utterance.voice=self.voice}
+            utterance.voice=self.voice
+            
+        }
         
         
         
@@ -308,7 +344,7 @@ class EnterWordViewController: UIViewController,UITextFieldDelegate {
         textFieldAppearance.keyboardAppearance = .dark
         super.viewDidLoad()
         createNewQuestion()
-        answerTF.becomeFirstResponder()
+       // answerTF.becomeFirstResponder()
         
         
         

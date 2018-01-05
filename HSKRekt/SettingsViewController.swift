@@ -46,7 +46,7 @@ class SettingsViewController: UIViewController {
         
         // custom le segmentedControl
      let font=UIFont(name: "PingFang SC" , size: 19)?.bold()
-        hskLevelSegmentedControl.setTitleTextAttributes([NSFontAttributeName:font!] , for: .normal)
+        hskLevelSegmentedControl.setTitleTextAttributes([NSAttributedStringKey.font:font!] , for: .normal)
       
 
        hskLevelSegmentedControl.selectedSegmentIndex=hskLevel-1
